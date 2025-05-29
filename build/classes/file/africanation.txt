@@ -1,0 +1,55 @@
+Algeria;Algeria.png
+Egitto;Egitto.png
+Libia;Libia.png
+Marocco;Marocco.png
+Mauritania;Mauritania.png
+Sahara Occidentale;SaharaOccidentale.png
+Sudan;Sudan.png
+Tunisia;Tunisia.png
+Benin;Benin.png
+Burkina Faso;BurkinaFaso.png
+Capo Verde;CapoVerde.png
+Costa d'Avorio;CostaDAvoro.png
+Gambia;Gambia.png
+Ghana;Ghana.png
+Guinea;Guinea.png
+Guinea-Bissau;GuineaBissau.png
+Liberia;Liberia.png
+Mali;Mali.png
+Niger;Niger.png
+Nigeria;Nigeria.png
+Senegal;Senegal.png
+Sierra Leone;SierraLeone.png
+Togo;Togo.png
+Camerun;Camerun.png
+Repubblica Centrafricana;RepubblicaCentrafrica.png
+Ciad;Ciad.png
+Congo;Congo.png
+Repubblica Democratica del Congo;RepubblicaDemocraticaDelCongo.png
+Guinea Equatoriale;GuineaEquatoriale.png
+Gabon;Gabon.png
+São Tomé e Príncipe;SaoTomeEPrincipe.png
+Burundi;Burundi.png
+Comore;Comore.png
+Djibouti;Djibouti.png
+Eritrea;Eritrea.png
+Etiopia;Etiopia.png
+Kenya;Kenya.png
+Madagascar;Madagascar.png
+Malawi;Malawi.png
+Mauritius;Mauritius.png
+Mozambico;Mozambico.png
+Ruanda;Ruanda.png
+Seychelles;Seychelles.png
+Somalia;Somalia.png
+Sud Sudan;SudSudan.png
+Tanzania;Tanzania.png
+Uganda;Uganda.png
+Angola;Angola.png
+Botswana;Botswana.png
+Lesotho;Lesotho.png
+Namibia;Namibia.png
+Sudafrica;Sudafrica.png
+Swaziland;Swaziland.png
+Zambia;Zambia.png
+Zimbabwe;Zimbabwe.

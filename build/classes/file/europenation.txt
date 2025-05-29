@@ -1,0 +1,45 @@
+Albania;Albania.png
+Andorra;Andorra.png
+Austria;Austria.png
+Belgio;Belgio.png
+Bielorussia;Bielorussia.png
+Bosnia ed Erzegovina;BosniaedErzegovina.png
+Bulgaria;Bulgaria.png
+Città del Vaticano;CittàdelVaticano.png
+Croazia;Croazia.png
+Danimarca;Danimarca.png
+Estonia;Estonia.png
+Finlandia;Finlandia.png
+Francia;Francia.png
+Germania;Germania.png
+Grecia;Grecia.png
+Irlanda;Irlanda.png
+Islanda;Islanda.png
+Italia;Italia.png
+Kosovo;Kosovo.png
+Lettonia;Lettonia.png
+Liechtenstein;Liechtenstein.png
+Lituania;Lituania.png
+Lussemburgo;Lussemburgo.png
+Macedonia del Nord;MacedoniadelNord.png
+Malta;Malta.png
+Moldavia;Moldavia.png
+Monaco;Monaco.png
+Montenegro;Montenegro.png
+Norvegia;Norvegia.png
+Paesi Bassi;PaesiBassi.png
+Polonia;Polonia.png
+Portogallo;Portogallo.png
+Regno Unito;RegnoUnito.png
+Repubblica Ceca;RepubblicaCeca.png
+Romania;Romania.png
+Russia;Russia.png
+San Marino;SanMarino.png
+Serbia;Serbia.png
+Slovacchia;Slovacchia.png
+Slovenia;Slovenia.png
+Spagna;Spagna.png
+Svezia;Svezia.png
+Svizzera;Svizzera.png
+Ucraina;Ucraina.png
+Ungheria;Ungheria.png

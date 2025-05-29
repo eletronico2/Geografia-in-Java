@@ -1,0 +1,37 @@
+Canada;Canada.png
+Stati Uniti d'America;StatiUniti.png
+Messico;Messico.png
+Groenlandia;Groenlandia.png
+Guatemala;Guatemala.png
+Belize;Belize.png
+Honduras;Honduras.png
+El Salvador;ElSalvador.png
+Nicaragua;Nicaragua.png
+Costa Rica;CostaRica.png
+Panama;Panama.png
+Cuba;Cuba.png
+Haiti;Haiti.png
+Repubblica Dominicana;RepubblicaDominicana.png
+Porto Rico;PortoRico.png
+Giamaica;Giamaica.png
+Bahamas;Bahamas.png
+Barbados;Barbados.png
+Trinidad e Tobago;TrinidadETobago.png
+Antigua e Barbuda;AntiguaEBarbuda.png
+Saint Kitts e Nevis;SaintKittsENevis.png
+Dominica;Dominica.png
+Saint Lucia;SaintLucia.png
+Saint Vincent e Grenadine;SaintVincentEGrenadine.png
+Grenada;Grenada.png
+Brasile;Brasile.png
+Argentina;Argentina.png
+Cile;Cile.png
+Perù;Perù.png
+Colombia;Colombia.png
+Venezuela;Venezuela.png
+Ecuador;Ecuador.png
+Bolivia;Bolivia.png
+Paraguay;Paraguay.png
+Uruguay;Uruguay.png
+Guyana;Guyana.png
+Suriname;Suriname.png

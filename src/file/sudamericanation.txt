@@ -1,0 +1,12 @@
+Brasile;Brasile.png
+Argentina;Argentina.png
+Cile;Cile.png
+Perù;Perù.png
+Colombia;Colombia.png
+Venezuela;Venezuela.png
+Ecuador;Ecuador.png
+Bolivia;Bolivia.png
+Paraguay;Paraguay.png
+Uruguay;Uruguay.png
+Guyana;Guyana.png
+Suriname;Suriname.png

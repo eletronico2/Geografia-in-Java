@@ -1,0 +1,19 @@
+Australia;Australia.png
+Nuova Zelanda;NuovaZelanda.png
+Papua Nuova Guinea;PapuaNuovaGuinea.png
+Isole Salomone;IsoleSalomone.png
+Vanuatu;Vanuatu.png
+Fiji;Fiji.png
+Nuova Caledonia;NuovaCaledonia.png
+Palau;Palau.png
+Federati Stati di Micronesia;FederatiStatiDiMicronesia.png
+Nauru;Nauru.png
+Kiribati;Kiribati.png
+Isole Marshall;IsoleMarshall.png
+Polinesia
+Samoa;Samoa.png
+Tonga;Tonga.png
+Tuvalu;Tuvalu.png
+Wallis e Futuna;WallisEFutuna.png
+Tokelau;Tokelau.png
+Samoa Americane;SamoaAmericane.png

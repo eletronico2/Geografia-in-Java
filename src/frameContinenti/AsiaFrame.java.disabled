@@ -1,0 +1,200 @@
+package frameContinenti;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
+
+public class AsiaFrame extends JFrame {
+    private BufferedImage immagine;
+    private JFrame parentFrame;
+
+    private FileRandomNation fileRandomNation = new FileRandomNation();
+    private FileRandomNation.Nation randomNation = null;
+    private ImageIcon bandieraIcon = null;
+
+    private JPanel bandieraPanel; // Pannello per la bandiera
+    private JPanel nomeNazionePanel; // Pannello per il nome della nazione
+    private JLabel nomeNazione; // Label per il nome della nazione
+
+    private NazioneControllo nazioneControllo;
+
+    public AsiaFrame(JFrame parentFrame) {
+        // Configura il JFrame
+        this.parentFrame = parentFrame;
+        setTitle("Asia");
+        setSize(800, 600);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setLocationRelativeTo(null);
+
+        // Carica l'immagine del continente
+        immagine = FunzioniFrame.caricaImmagine("src/images/asia.png");
+
+        // Inizializza NazioneControllo con tutte le nazioni disponibili
+        Set<String> tutteLeNazioni = new HashSet<>();
+        try {
+            tutteLeNazioni = fileRandomNation.getAllNations();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Errore nel caricamento delle nazioni");
+        }
+        nazioneControllo = new NazioneControllo(tutteLeNazioni);
+
+        // Crea il pannello per l'immagine del continente con il pulsante
+        JPanel pannelloImmagine = new JPanel(null) {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                FunzioniFrame.disegnaImmagine(g, immagine, getWidth(), getHeight());
+            }
+        };
+        pannelloImmagine.setPreferredSize(new Dimension(800, 600));
+        
+        // Aggiungi il pulsante sopra un paese specifico in Asia
+        JButton btnChina = new JButton("");
+        btnChina.setBounds(750, 300, 15, 15); // Posizionamento del pulsante sulla Cina
+        pannelloImmagine.add(btnChina);
+
+        // Verifica se la nazione selezionata è Cina e disabilita il pulsante
+        nazioneControllo.verificaNazione(btnChina, "Cina", randomNation != null ? randomNation.getNameNation() : "");
+
+        // Crea il pannello del menu
+        JPanel menuPanel = new JPanel(new GridBagLayout());
+        menuPanel.setPreferredSize(new Dimension(200, getHeight()));
+
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(10, 10, 10, 10);
+        gbc.gridx = 0;
+        gbc.gridy = GridBagConstraints.RELATIVE;
+        gbc.anchor = GridBagConstraints.NORTH; // Posizionamento in alto
+
+        // Pannello per la bandiera
+        bandieraPanel = new JPanel(new GridBagLayout()) {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                FunzioniFrame.disegnaBandiera(g, bandieraIcon, getWidth(), getHeight());
+            }
+        };
+        bandieraPanel.setPreferredSize(new Dimension(150, 100));
+        gbc.weightx = 1.0;
+        gbc.weighty = 0.1;
+        gbc.fill = GridBagConstraints.BOTH;
+        menuPanel.add(bandieraPanel, gbc);
+
+        // Pulsante NEXT
+        JButton nextButton = new JButton("NEXT");
+        nextButton.addActionListener(e -> {
+            if (nazioneControllo.tutteNazioniMostrate()) {
+                JOptionPane.showMessageDialog(this, "Nazioni Esaurite");
+            } else {
+                randomNat();
+                while (nazioneControllo.isNazioneMostrata(randomNation.getNameNation())) {
+                    randomNat();
+                }
+                nazioneControllo.aggiungiNazioneMostrata(randomNation.getNameNation());
+                nomeNazione.setText(randomNation.getNameNation());
+                bandieraIcon = new ImageIcon(fileRandomNation.imageFolder + randomNation.getPngFile());
+                bandieraPanel.repaint();
+                nomeNazionePanel.repaint();
+                nomeNazionePanel.revalidate();
+                nomeNazionePanel.repaint();
+                System.out.println("Nazione selezionata: " + randomNation.getNameNation());
+
+                // Verifica di nuovo con la nuova nazione
+                nazioneControllo.verificaNazione(btnChina, "Cina", randomNation.getNameNation());
+            }
+        });
+        nextButton.setBackground(Color.BLUE);
+        nextButton.setForeground(Color.WHITE);
+        nextButton.setFont(new Font("Arial", Font.BOLD, 14));
+        nextButton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
+        nextButton.setPreferredSize(new Dimension(100, 30));
+        gbc.weightx = 0;
+        gbc.weighty = 0;
+        gbc.fill = GridBagConstraints.NONE;
+        menuPanel.add(nextButton, gbc);
+
+        // Pannello per il nome della nazione
+        nomeNazionePanel = new JPanel(new BorderLayout()) {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                FunzioniFrame.adjustFontSize((Graphics2D) g, nomeNazione, this);
+            }
+        };
+        nomeNazione = new JLabel("NomeNazione", JLabel.CENTER);
+        nomeNazione.setForeground(Color.BLACK);
+        nomeNazionePanel.add(nomeNazione, BorderLayout.CENTER);
+        nomeNazionePanel.setPreferredSize(new Dimension(200, 50));
+        gbc.weightx = 1.0;
+        gbc.weighty = 0.1;
+        gbc.fill = GridBagConstraints.BOTH;
+        menuPanel.add(nomeNazionePanel, gbc);
+
+        gbc.anchor = GridBagConstraints.SOUTH; // Posizionamento in basso
+
+        // Pulsante BACK
+        JButton backButton = new JButton("BACK");
+        backButton.addActionListener(e -> {
+            parentFrame.setVisible(true);
+            dispose();
+            System.out.println("Tornato alla finestra principale");
+        });
+        backButton.setBackground(Color.BLUE);
+        backButton.setForeground(Color.WHITE);
+        backButton.setFont(new Font("Arial", Font.BOLD, 12));
+        backButton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        backButton.setPreferredSize(new Dimension(100, 30));
+        gbc.weightx = 0;
+        gbc.weighty = 0;
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.anchor = GridBagConstraints.SOUTH;
+        menuPanel.add(backButton, gbc);
+
+        // Crea lo split pane per dividere la finestra
+        JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, pannelloImmagine, menuPanel);
+        splitPane.setDividerSize(0); // Rimuove la possibilità di trascinamento
+        splitPane.setResizeWeight(0.80); // 80% immagine, 20% menu
+        splitPane.setEnabled(false); // Disabilita il trascinamento del divisore
+
+        // Aggiungi lo split pane al frame
+        add(splitPane);
+
+        // Inizializza nazione casuale all'avvio
+        randomNat();
+        if (randomNation != null) {
+            nomeNazione.setText(randomNation.getNameNation());
+            bandieraIcon = new ImageIcon(fileRandomNation.imageFolder + randomNation.getPngFile());
+            bandieraPanel.repaint();
+            nomeNazionePanel.repaint();
+            System.out.println("Nazione iniziale selezionata: " + randomNation.getNameNation());
+            nazioneControllo.aggiungiNazioneMostrata(randomNation.getNameNation());
+
+            // Verifica di nuovo con la nazione iniziale
+            nazioneControllo.verificaNazione(btnChina, "Cina", randomNation.getNameNation());
+        } else {
+            System.out.println("Nessuna nazione iniziale selezionata");
+        }
+
+        setVisible(true);
+    }
+
+    private void randomNat() {
+        try {
+            randomNation = fileRandomNation.getRandomNation();
+            if (randomNation != null) {
+                bandieraIcon = new ImageIcon(fileRandomNation.imageFolder + randomNation.getPngFile());
+                System.out.println("Nazione casuale selezionata: " + randomNation.getNameNation());
+            } else {
+                System.out.println("Nessuna nazione casuale selezionata");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Caricamento dell'immagine della bandiera fallito");
+        }
+    }
+}

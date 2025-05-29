@@ -1,0 +1,45 @@
+Cina;Cina.png
+Giappone;Giappone.png
+Corea del Nord;CoreadelNord.png
+Corea del Sud;CoreadelSud.png
+Mongolia;Mongolia.png
+Taiwan;Taiwan.png
+Afghanistan;Afghanistan.png
+Bangladesh;Bangladesh.png
+Bhutan;Bhutan.png
+India;India.png
+Maldive;Maldive.png
+Nepal;Nepal.png
+Pakistan;Pakistan.png
+Sri Lanka;SriLanka.png
+Brunei;Brunei.png
+Cambogia;Cambogia.png
+Filippine;Filippine.png
+Indonesia;Indonesia.png
+Laos;Laos.png
+Malaysia;Malaysia.png
+Myanmar;Myanmar.png
+Singapore;Singapore.png
+Thailandia;Thailandia.png
+Vietnam;Vietnam.png
+Arabia Saudita;ArabiaSaudita.png
+Bahrain;Bahrain.png
+Cipro;Cipro.png
+Emirati Arabi Uniti;EmiratiArabiUniti.png
+Iran;Iran.png
+Iraq;Iraq.png
+Israele;Israele.png
+Giordania;Giordania.png
+Kuwait;Kuwait.png
+Libano;Libano.png
+Oman;Oman.png
+Qatar;Qatar.png
+Siria;Siria.png
+Turchia;Turchia.png
+Yemen;Yemen.png
+Asia Centrale
+Kazakistan;Kazakistan.png
+Kirghizistan;Kirghizistan.png
+Tagikistan;Tagikistan.png
+Turkmenistan;Turkmenistan.png
+Uzbekistan;Uzbekistan.png
