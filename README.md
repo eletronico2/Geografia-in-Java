@@ -1,0 +1,44 @@
+Questo software, creato in Java avvalendosi dell'ambiente di sviluppo NetBeans, propone un'esperienza utente interattiva e formativa, consentendo di scoprire e memorizzare le bandiere dei paesi di due specifici continenti: Europa e Sud America.
+
+L'interfaccia utente grafica (GUI), implementata mediante la libreria Swing, permette all'utente di scegliere un continente agendo direttamente su una mappa interattiva. Un componente JPanel, operante come zona di interazione, è sovrapposto a uno sfondo personalizzato (un'immagine che raffigura la mappa). Tale pannello è stato concepito per interpretare le azioni dell'utente, come i clic del mouse, al fine di identificare il continente selezionato.
+
+Dopo la selezione del continente, l'applicazione visualizza la mappa corrispondente e una bandiera scelta casualmente tra quelle delle nazioni di tale continente. L'utente dovrà quindi identificare la nazione associata alla bandiera attraverso dei JButton dislocati sugli stati rappresentati sulla mappa. In funzione della risposta fornita, il programma comunicherà l'esito del tentativo. In caso di successo, verrà presentata una nuova bandiera da indovinare, proseguendo fino a quando l'utente non le avrà identificate tutte. Al termine, verranno comunicati il tempo impiegato per completare il continente e il numero di errori commessi.
+
+Linguaggio Java
+
+Java è un linguaggio di programmazione di alto livello basato sui paradigmi della programmazione orientata agli oggetti (OOP).
+
+Un oggetto è l'istanza specifica di una classe, ovvero una sua concretizzazione funzionante. Con la creazione di un oggetto, viene allocata memoria per le sue proprietà, che possono essere successivamente personalizzate. Gli oggetti interagiscono tra loro mediante l'invocazione di metodi e l'accesso alle proprietà, utilizzando il carattere punto ( . ) come riferimento (es: automobile.accendiMotore(), dove automobile è l'oggetto e accendiMotore() il metodo; per convenzione, nomi di metodi e oggetti iniziano con minuscola, quelli delle classi con maiuscola). Sostanzialmente, la classe è il progetto, l'oggetto è il prodotto derivato.
+
+Una classe in Java definisce il modello da cui si possono generare oggetti. Essa ne stabilisce le proprietà (o attributi) e i comportamenti (metodi). Le proprietà sono variabili che descrivono lo stato di un oggetto, mentre i metodi ne rappresentano le azioni eseguibili.
+
+I metodi svolgono un ruolo cruciale all'interno delle classi, essendo blocchi di codice riutilizzabili associati agli oggetti. Ogni metodo possiede una "firma" che ne specifica il tipo di dato restituito, il nome e i parametri di input. I metodi possono leggere o modificare gli attributi, eseguire calcoli, gestire l'interazione tra oggetti o definire logiche complesse. Sia metodi che attributi possono essere dichiarati public, private o protected, a seconda della loro visibilità (livello di accesso concesso ad altri oggetti/classi). Elementi private sono utilizzabili solo all'interno della classe di dichiarazione, ideali per la protezione dei dati (incapsulamento). Elementi public sono accessibili da qualsiasi altra classe, ma un loro uso eccessivo può minare la sicurezza. Il modificatore protected permette l'accesso alle classi dello stesso package e alle sottoclassi; l'accesso package-private (senza modificatore esplicito) è limitato al package corrente.
+
+In Java, il costruttore è un metodo speciale impiegato per inizializzare un oggetto al momento della sua creazione (new). Porta lo stesso nome della classe, non ha un tipo di ritorno e viene eseguito automaticamente. La sua funzione primaria è assegnare valori iniziali agli attributi dell'oggetto. Ad esempio, in una classe Studente, il costruttore potrebbe accettare nome ed età come parametri per configurare lo stato iniziale dell'oggetto (es: Studente s = new Studente("Mario", "Rossi");).
+
+All'interno del costruttore, la parola chiave this è spesso usata per differenziare gli attributi di classe dai parametri (es: this.nome = nome;). Se non si definisce alcun costruttore, Java ne fornisce uno di default (senza parametri) che inizializza gli attributi a valori predefiniti (0, null, false). Tuttavia, non appena si introduce un costruttore personalizzato, quello di default cessa di essere generato automaticamente. Java supporta anche il sovraccarico dei costruttori (overloading), consentendo di definire più costruttori con firme diverse per offrire varie modalità di creazione degli oggetti, aumentando la flessibilità della classe.
+
+Un altro concetto cardine dell'OOP in Java è l'ereditarietà: permette di creare una nuova classe (sottoclasse/classe derivata) basandola su una preesistente (superclasse/classe base). La sottoclasse acquisisce tutti gli attributi e metodi della superclasse, potendo aggiungerne di nuovi o ridefinire quelli esistenti (ma non eliminarli). Questo favorisce il riuso del codice e l'estensione delle funzionalità. Ad esempio, una classe Veicolo potrebbe avere come sottoclassi Auto, Moto e Bicicletta, ognuna con peculiarità proprie ma condividendo le caratteristiche generali della superclasse. L'ereditarietà si implementa con la parola chiave extends. Una caratteristica dell'ereditarietà è l'overriding (sovrascrittura), ossia la capacità di una sottoclasse di fornire un'implementazione specifica per un metodo già definito nella sua superclasse (mantenendo la stessa firma), stabilendo così una gerarchia e chiarendo la relazione tra classi madri e figlie. Le sottoclassi possono invocare il costruttore della superclasse tramite super(...) per inizializzare i campi ereditati prima di gestire i propri attributi specifici (questa chiamata deve essere la prima istruzione nel costruttore della sottoclasse).
+
+Esecuzione del Programma
+
+L'applicazione si avvia con l'esecuzione della classe Start.java. Il suo metodo main istanzia e rende visibile un oggetto della classe MainFrame.java, che agisce come finestra principale dell'applicazione. Questa classe, estendendo JFrame (la finestra base per le GUI Swing), è configurata per presentare all'utente una mappa del mondo resa interattiva da un JPanel, attraverso il quale si può selezionare un continente.
+
+Quando l'utente clicca su uno dei continenti, il programma identifica l'area del clic confrontandola con poligoni definiti nella classe ContinentPolygons.java. Questi poligoni, creati unendo punti con coordinate (x,y), delimitano le aree interattive.
+Una volta scelto il continente, il programma ne cattura le coordinate del clic. Tramite il metodo getContinentAt, viene individuata la corrispondenza con i poligoni continentali. Successivamente, si apre una nuova finestra specifica per quel continente (attualmente operativa solo per Europa e Sud America), dando inizio alla fase di gioco vera e propria.
+
+Il metodo responsabile dell'apertura del nuovo frame è openContinentFrame. Per Europa e Sud America, viene aperto il frame dedicato. Per gli altri continenti, un messaggio (visualizzato tramite il metodo statico showMessageDialog della classe JOptionPane) informa che la funzionalità non è ancora stata implementata.
+
+All'apertura del frame del continente, viene eseguito il costruttore del frame stesso, che imposta titolo e dimensioni della finestra, crea i pannelli per l'interattività, avvia un cronometro per misurare il tempo di completamento e carica tutti i nomi delle nazioni tramite il metodo getAllNations della classe FileRandomNation.java. Queste informazioni sono necessarie per caricare le bandiere e i relativi nomi.
+
+Sono presenti due pannelli principali:
+
+Il pannello dell'immagine della mappa: generato dal metodo creaPannelloImmagine. Qui vengono creati i JButton (pulsanti cliccabili) sulla mappa del continente, posizionati manualmente con il metodo setBounds che ne definisce coordinate scalate e dimensioni.
+Il pannello della bandiera da indovinare e delle informazioni di gioco. Contiene:
+Un'area dedicata all'immagine della bandiera.
+Un JButton (nextButton) per passare alla nazione successiva (se si desidera saltare).
+Quattro JLabel che mostrano: il nome della nazione (una volta indovinata o saltata), il conteggio dei tentativi errati, quello dei tentativi corretti e il tempo trascorso (avviato dal costruttore).
+Un JButton (backButton) per ritornare alla schermata precedente.
+A seconda del tentativo dell'utente, il pulsante cliccato sulla mappa assume un colore: verde (metodo impostaColorazionePulsante) se la nazione è corretta (incrementando i corretti con incrementaCorretto), o rosso (incrementando gli errati con incrementaErrato) in caso di errore.
+
+Se la nazione viene indovinata, una nuova bandiera è generata, e così via, finché l'utente non le identifica tutte. Dopo aver indovinato tutte le nazioni, un messaggio (tramite JOptionPane.showMessageDialog) si congratula con l'utente, riportando il numero di tentativi errati e il tempo totale impiegato.
